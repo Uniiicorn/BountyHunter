@@ -1,0 +1,10 @@
+name: BountyHunter
+version: 1.0
+author: CFUnicorn
+website: https://cf-unicorn.com/go/bountyhunter
+main: com.cfunicorn.bountyhunter.main.Main
+api-version: 1.17
+depend:
+  - Vault
+commands:
+  bounty:

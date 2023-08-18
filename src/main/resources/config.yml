@@ -1,0 +1,9 @@
+Settings:
+  Prefix: "&7[&6Bounty&cHunter&7]"
+  NoPerm: "&cYou are not allowed to do that."
+  MySQL:
+    Host: "localhost"
+    User: "root"
+    Password: "password"
+    Database: "database"
+    Port: "3306"

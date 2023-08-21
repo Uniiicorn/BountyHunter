@@ -28,12 +28,18 @@ public class MySQL {
                 setConnection(DriverManager.getConnection("jdbc:mysql://" + user + ":" + pass + "@" + host + ":" + port
                         + "/" + db + "?autoReconnect=true"));
 
-                PreparedStatement ps = getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS BountyHunter ("
+                PreparedStatement ps;
+                ps = getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS BountyHunter ("
                         + "id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,"
                         + "target VARCHAR(36),"
                         + "issuer VARCHAR(36),"
                         + "bounty INT,"
                         + "timestamp VARCHAR(36))");
+                ps.executeUpdate();
+                ps = getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS BountyHunterPlayers ("
+                        + "uuid VARCHAR(36) PRIMARY KEY UNIQUE NOT NULL,"
+                        + "color VARCHAR(36),"
+                        + "bounties INT)");
                 ps.executeUpdate();
                 ps.close();
             } catch (SQLException e) {

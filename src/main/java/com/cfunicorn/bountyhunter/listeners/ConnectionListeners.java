@@ -31,6 +31,8 @@ public class ConnectionListeners implements Listener {
 
         Player p = e.getPlayer();
 
+        loader.getPlayerHandler().setupPlayer(p.getUniqueId());
+
         if (loader.getBountyHandler().hasBounty(p.getUniqueId())) {
 
             Bounty bounty = loader.getBountyHandler().getBounty(p.getUniqueId());
@@ -60,14 +62,4 @@ public class ConnectionListeners implements Listener {
         }
     }
 
-    @EventHandler
-    public void onClick(InventoryClickEvent e) {
-        try {
-            if(e.getView().getTitle().equalsIgnoreCase(ChatColor.RED + "Bounties")) {
-                e.setCancelled(true);
-            }
-        } catch (Exception ignored) {
-
-        }
-    }
 }

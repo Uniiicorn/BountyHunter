@@ -2,7 +2,9 @@ package com.cfunicorn.bountyhunter.utils;
 
 import com.cfunicorn.bountyhunter.commands.CMD_Bounty;
 import com.cfunicorn.bountyhunter.listeners.ConnectionListeners;
+import com.cfunicorn.bountyhunter.listeners.GUIListener;
 import com.cfunicorn.bountyhunter.listeners.PlayerDeathListener;
+import com.cfunicorn.bountyhunter.listeners.TrackerListener;
 import com.cfunicorn.bountyhunter.main.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -19,6 +21,7 @@ public class Loader {
     private MySQL mySQL;
     private BountyHandler bountyHandler;
     private GuiHandler guiHandler;
+    private PlayerHandler playerHandler;
 
     public Loader(Main main) {
         setFile(new File(main.getDataFolder(), "config.yml"));
@@ -30,6 +33,7 @@ public class Loader {
         setMySQL(new MySQL(this));
         setBountyHandler(new BountyHandler(this));
         setGuiHandler(new GuiHandler(this));
+        setPlayerHandler(new PlayerHandler(this));
 
     }
 
@@ -38,6 +42,8 @@ public class Loader {
 
         new ConnectionListeners(main);
         new PlayerDeathListener(main);
+        new GUIListener(main);
+        new TrackerListener(main);
     }
 
     public String getPrefix() {
@@ -94,5 +100,13 @@ public class Loader {
 
     public void setGuiHandler(GuiHandler guiHandler) {
         this.guiHandler = guiHandler;
+    }
+
+    public PlayerHandler getPlayerHandler() {
+        return playerHandler;
+    }
+
+    public void setPlayerHandler(PlayerHandler playerHandler) {
+        this.playerHandler = playerHandler;
     }
 }

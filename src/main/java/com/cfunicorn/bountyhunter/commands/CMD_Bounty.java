@@ -81,6 +81,10 @@ public class CMD_Bounty implements CommandExecutor {
                 loader.getBountyHandler().deleteBounty(p.getUniqueId());
 
                 return true;
+            } else if (args[0].equalsIgnoreCase("profile")) {
+
+                loader.getGuiHandler().bountyProfile(p);
+                return true;
             } else {
                 helpMessage(p);
                 return true;
@@ -95,7 +99,7 @@ public class CMD_Bounty implements CommandExecutor {
                     return true;
                 }
 
-                if(p == target) {
+                if (p == target) {
                     p.sendMessage(prefix + ChatColor.GRAY + "You can't put a bounty on yourself.");
                     return true;
                 }

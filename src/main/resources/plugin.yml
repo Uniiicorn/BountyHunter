@@ -1,5 +1,5 @@
 name: BountyHunter
-version: 1.0
+version: 1.2
 author: CFUnicorn
 website: https://cf-unicorn.com/go/bountyhunter
 main: com.cfunicorn.bountyhunter.main.Main
